@@ -36,8 +36,9 @@
 	<ul class="todo-list">
 		{#each todoList as item, index}
 			<div class="todo">
-				<input bind:checked={item.status} style="margin-left: 10px;" type="checkbox" />
-				<li class={`todo-item ${item.status ? 'completed' : ''}`}>{item.text}</li>
+				<label for="chk{index}" class={`todo-item ${item.status ? 'completed' : ''}`}>
+					<input id="chk{index}" bind:checked={item.status} style="margin-right: 10px;" type="checkbox" />{item.text}
+				</label>
 				<button on:click={() => removeFromList(index)} class="trash-btn">
 					<i class="fas fa-trash" />
 				</button>
